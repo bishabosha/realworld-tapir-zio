@@ -2,7 +2,7 @@ package com.softwaremill.realworld.common
 
 import zio.config.magnolia.descriptor
 import zio.config.{ReadError, read}
-import zio.{Layer, ZLayer}
+import zio.ZLayer
 
 final case class RootConfig(
     config: AppConfig
@@ -21,7 +21,6 @@ final case class DbConfig(
 )
 
 object Configuration:
-  import zio.config.syntax.*
   import zio.config.typesafe.*
 
   val live: ZLayer[Any, ReadError[String], AppConfig] =
